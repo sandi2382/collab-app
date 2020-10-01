@@ -13,7 +13,7 @@ import {
 import * as firebase from "firebase";
 import { Footer, Text, Input, Item } from "native-base";
 
-class Login extends Component {
+class CreateGroup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,7 +32,7 @@ class Login extends Component {
       .signInWithEmailAndPassword(this.state.email, this.state.pass)
       .then(data => {
         this.setState({ loader: false });
-        this.props.navigation.navigate("CreateGroup");
+        this.props.navigation.navigate("Home");
       })
       .catch(error => {
         this.setState({ loader: false });
@@ -70,6 +70,24 @@ class Login extends Component {
             </View>
           </View>
           <View>
+            <View style={{ margin: 5 }}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate("ForgotPassword")}
+              >
+                <Text
+                  style={{
+                    fontSize: 20,
+                    textAlign: "left",
+                    paddingLeft: 10,
+                    color: "white",
+                    fontWeight: "bold"
+                  }}
+                >
+                  Create Group
+                </Text>
+              </TouchableOpacity>
+            </View>
+
             <View style={{ margin: 10, marginTop: 5 }}>
               <Item
                 rounded
@@ -82,9 +100,9 @@ class Login extends Component {
               >
                 <Input
                   style={{ color: "white", fontSize: 14 }}
-                  placeholder="Email"
+                  placeholder="Group Name"
                   placeholderTextColor="white"
-                  onChangeText={email => this.setState({ email })}
+                  //onChangeText={email => this.setState({ email })}
                 />
               </Item>
 
@@ -99,48 +117,30 @@ class Login extends Component {
               >
                 <Input
                   style={{ color: "white", fontSize: 14 }}
-                  placeholder="Password"
-                  secureTextEntry={true}
+                  placeholder="#GroupTag"
+                  //secureTextEntry={true}
                   placeholderTextColor="white"
-                  onChangeText={pass => this.setState({ pass })}
+                  //onChangeText={pass => this.setState({ pass })}
                 />
               </Item>
 
-              <View style={{ margin: 5 }}>
+              <View style={{ marginTop: 10 }}>
+                {/* {!this.state.loader ? ( */}
                 <TouchableOpacity
-                  onPress={() =>
-                    this.props.navigation.navigate("ForgotPassword")
-                  }
+                  onPress={() => this.props.navigation.navigate("Home")}
+                  style={{
+                    backgroundColor: "#147efb",
+                    padding: 15,
+                    borderRadius: 5
+                  }}
                 >
-                  <Text
-                    style={{
-                      fontSize: 14,
-                      textAlign: "right",
-                      color: "white",
-                      fontWeight: "bold"
-                    }}
-                  >
-                    Forgot Password?
+                  <Text style={{ textAlign: "center", color: "white" }}>
+                    CREATE GROUP
                   </Text>
                 </TouchableOpacity>
-              </View>
-              <View style={{ marginTop: 10 }}>
-                {!this.state.loader ? (
-                  <TouchableOpacity
-                    onPress={this.Login}
-                    style={{
-                      backgroundColor: "#147efb",
-                      padding: 15,
-                      borderRadius: 5
-                    }}
-                  >
-                    <Text style={{ textAlign: "center", color: "white" }}>
-                      LOG IN
-                    </Text>
-                  </TouchableOpacity>
-                ) : (
-                  <ActivityIndicator size="large" color="#0000ff" />
-                )}
+                {/* ) : ( */}
+                {/* <ActivityIndicator size="large" color="#0000ff" /> */}
+                {/* )} */}
               </View>
               <View
                 style={{
@@ -217,4 +217,4 @@ class Login extends Component {
 
 const styles = StyleSheet.create({});
 
-export default Login;
+export default CreateGroup;

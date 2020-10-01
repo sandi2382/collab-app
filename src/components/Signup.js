@@ -60,7 +60,7 @@ class Signup extends Component {
         <ScrollView>
           <View
             style={{
-              marginTop: 200,
+              marginTop: 150,
               marginBottom: 12,
               display: "flex",
               flexDirection: "row",
@@ -68,7 +68,7 @@ class Signup extends Component {
               alignContent: "center"
             }}
           >
-            <View>
+            <View style={{ paddingBottom: 30 }}>
               <Image
                 style={{
                   //flex: 1,
