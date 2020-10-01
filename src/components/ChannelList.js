@@ -46,12 +46,12 @@ export const ChannelList = ({ client, changeChannel }) => {
             <Image
               style={{
                 //flex: 1,
-                aspectRatio: Platform.OS === "ios" ? 3.0 : 3.0,
+                aspectRatio: Platform.OS === "ios" ? 2.5 : 3.0,
                 resizeMode: "contain",
                 height: 80,
                 width: 100
               }}
-              source={require("../../assets/stocksoftware.png")}
+              source={require("../../assets/collabapp.png")}
             />
             <TextInput
               style={styles.inputSearchBox}

@@ -6,7 +6,6 @@ import { MessageSlack, DateSeparator, InputBox } from "./src/components";
 import { Chat, MessageList, MessageInput, Channel } from "stream-chat-expo";
 import { ChannelList } from "./src/components/ChannelList";
 import { ChannelHeader } from "./src/components/ChannelHeader";
-import StackRoutes from "./src/StackRoutes";
 
 import { StreamChat } from "stream-chat";
 import { useFonts } from "@use-expo/font";
@@ -18,8 +17,8 @@ const chatClient = new StreamChat("q95x9hkbyd6p");
 const userToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidmlzaGFsIn0.LpDqH6U8V8Qg9sqGjz0bMQvOfWrWKAjPKqeODYM0Elk";
 const user = {
-  id: "Rob",
-  name: "Rob"
+  id: "vishal",
+  name: "Vishal"
 };
 
 chatClient.setUser(user, userToken);
@@ -100,7 +99,18 @@ export default function App() {
 
   console.log("isLoaded ", isLoaded);
   if (!isLoaded) return null;
-  return <StackRoutes />;
+  return (
+    <NavigationContainer>
+      <View style={{ flex: 1, backgroundColor: "black" }}>
+        <Drawer.Navigator
+          drawerContent={ChannelListDrawer}
+          drawerStyle={styles.drawerNavigator}
+        >
+          <Drawer.Screen name="ChannelScreen" component={ChannelScreen} />
+        </Drawer.Navigator>
+      </View>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
