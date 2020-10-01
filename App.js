@@ -18,8 +18,8 @@ const chatClient = new StreamChat("q95x9hkbyd6p");
 const userToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidmlzaGFsIn0.LpDqH6U8V8Qg9sqGjz0bMQvOfWrWKAjPKqeODYM0Elk";
 const user = {
-  id: "vishal",
-  name: "Vishal"
+  id: "Rob",
+  name: "Rob"
 };
 
 chatClient.setUser(user, userToken);
@@ -100,8 +100,7 @@ export default function App() {
 
   console.log("isLoaded ", isLoaded);
   if (!isLoaded) return null;
-  return    <StackRoutes />
-
+  return <StackRoutes />;
 }
 
 const styles = StyleSheet.create({

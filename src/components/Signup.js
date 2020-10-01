@@ -8,7 +8,7 @@ import {
   Alert,
   ActivityIndicator,
   KeyboardAvoidingView,
-  Platform,
+  Platform
 } from "react-native";
 import * as firebase from "firebase";
 import { Footer, Text, Input, Item } from "native-base";
@@ -20,7 +20,7 @@ class Signup extends Component {
       email: "",
       pass: "",
       username: "",
-      loader: false,
+      loader: false
     };
   }
 
@@ -31,21 +31,21 @@ class Signup extends Component {
     firebase
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.pass)
-      .then((data) => {
+      .then(data => {
         firebase
           .database()
           .ref(`users/${data.user.uid}`)
           .set({
             email: this.state.email,
-            username: this.state.username,
+            username: this.state.username
           })
           .then(() => {
             this.setState({ loader: false });
             this.props.navigation.navigate("Home");
           })
-          .catch((e) => this.setState({ loader: false }));
+          .catch(e => this.setState({ loader: false }));
       })
-      .catch((error) => {
+      .catch(error => {
         this.setState({ loader: false });
         Alert.alert("Try Again" + error);
       });
@@ -60,21 +60,26 @@ class Signup extends Component {
         <ScrollView>
           <View
             style={{
-              marginTop: 30,
+              marginTop: 200,
               marginBottom: 12,
               display: "flex",
               flexDirection: "row",
               justifyContent: "center",
+              alignContent: "center"
             }}
           >
             <View>
-              <Text
-                style={{ fontSize: 40, fontWeight: "bold", color: "white" }}
-              >
-                COLLAB
-              </Text>
+              <Image
+                style={{
+                  //flex: 1,
+                  aspectRatio: Platform.OS === "ios" ? 4.0 : 3.0,
+                  resizeMode: "contain",
+                  height: 80,
+                  width: 100
+                }}
+                source={require("../../assets/collabapp.png")}
+              />
             </View>
-           
           </View>
           <View>
             <View style={{ margin: 10, marginTop: 5 }}>
@@ -84,14 +89,14 @@ class Signup extends Component {
                   borderWidth: 5,
                   borderRadius: 5,
                   margin: 5,
-                  backgroundColor: "#545f70",
+                  backgroundColor: "#545f70"
                 }}
               >
                 <Input
                   style={{ color: "white", fontSize: 14 }}
                   placeholder="Username"
                   placeholderTextColor="white"
-                  onChangeText={(username) => this.setState({ username })}
+                  onChangeText={username => this.setState({ username })}
                 />
               </Item>
 
@@ -101,14 +106,14 @@ class Signup extends Component {
                   borderWidth: 5,
                   borderRadius: 5,
                   margin: 5,
-                  backgroundColor: "#545f70",
+                  backgroundColor: "#545f70"
                 }}
               >
                 <Input
                   style={{ color: "white", fontSize: 14 }}
                   placeholder="Email"
                   placeholderTextColor="white"
-                  onChangeText={(email) => this.setState({ email })}
+                  onChangeText={email => this.setState({ email })}
                 />
               </Item>
 
@@ -118,7 +123,7 @@ class Signup extends Component {
                   borderWidth: 5,
                   borderRadius: 5,
                   margin: 5,
-                  backgroundColor: "#545f70",
+                  backgroundColor: "#545f70"
                 }}
               >
                 <Input
@@ -126,11 +131,10 @@ class Signup extends Component {
                   placeholder="Password"
                   secureTextEntry={true}
                   placeholderTextColor="white"
-                  onChangeText={(pass) => this.setState({ pass })}
+                  onChangeText={pass => this.setState({ pass })}
                 />
               </Item>
 
-           
               <View style={{ marginTop: 10 }}>
                 {!this.state.loader ? (
                   <TouchableOpacity
@@ -138,7 +142,7 @@ class Signup extends Component {
                     style={{
                       backgroundColor: "#147efb",
                       padding: 15,
-                      borderRadius: 5,
+                      borderRadius: 5
                     }}
                   >
                     <Text style={{ textAlign: "center", color: "white" }}>
@@ -155,7 +159,7 @@ class Signup extends Component {
                   marginBottom: 20,
                   display: "flex",
                   flexDirection: "row",
-                  justifyContent: "space-around",
+                  justifyContent: "space-around"
                 }}
               >
                 <View
@@ -163,7 +167,7 @@ class Signup extends Component {
                     bottom: 10,
                     borderBottomColor: "#dddddd",
                     borderBottomWidth: 1,
-                    width: 155,
+                    width: 155
                   }}
                 />
                 <View>
@@ -172,7 +176,7 @@ class Signup extends Component {
                       textAlign: "center",
                       width: 30,
                       color: "#dddddd",
-                      alignSelf: "center",
+                      alignSelf: "center"
                     }}
                   >
                     OR
@@ -183,7 +187,7 @@ class Signup extends Component {
                     bottom: 10,
                     width: 155,
                     borderBottomColor: "#dddddd",
-                    borderBottomWidth: 1,
+                    borderBottomWidth: 1
                   }}
                 />
               </View>
@@ -207,7 +211,7 @@ class Signup extends Component {
                       color: "white",
                       fontSize: 14,
                       marginLeft: 5,
-                      fontWeight: "bold",
+                      fontWeight: "bold"
                     }}
                   >
                     Login
