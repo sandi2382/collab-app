@@ -1,4 +1,4 @@
-# Slack clone using expo, stream and react-navigation
+# Group Messaging app using expo, stream and react-navigation
 
 <div style="display: inline">
 <img src="./screenshots/1.png" alt="IMAGE ALT TEXT HERE" width="250" border="1" style="margin-right: 30px" />
@@ -15,7 +15,7 @@ https://medium.com/@vishalnarkhede.iitd/slack-clone-with-react-native-part-1-f71
 ## Running the project
 
 ```
-git clone git@github.com:GetStream/slack-clone-expo.git
-cd slack-clone-expo
-yarn; yarn start
+git clone 
+cd chartbot-chat
+yarn; yarn ios
 ```
