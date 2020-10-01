@@ -51,7 +51,7 @@ export const ChannelList = ({ client, changeChannel }) => {
                 height: 80,
                 width: 100
               }}
-              source={require("../../assets/chartbottextlogo.png")}
+              source={require("../../assets/stocksoftware.png")}
             />
             <TextInput
               style={styles.inputSearchBox}
