@@ -32,7 +32,7 @@ class Login extends Component {
       .signInWithEmailAndPassword(this.state.email, this.state.pass)
       .then(data => {
         this.setState({ loader: false });
-        this.props.navigation.navigate("CreateGroup");
+        this.props.navigation.navigate("HomePage");
       })
       .catch(error => {
         this.setState({ loader: false });
@@ -108,9 +108,7 @@ class Login extends Component {
 
               <View style={{ margin: 5 }}>
                 <TouchableOpacity
-                  onPress={() =>
-                    this.props.navigation.navigate("ForgotPassword")
-                  }
+                  onPress={() => this.props.navigation.navigate("CreateGroup")}
                 >
                   <Text
                     style={{

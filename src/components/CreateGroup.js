@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import * as firebase from "firebase";
 import { Footer, Text, Input, Item } from "native-base";
+import { Feather } from "@expo/vector-icons";
 
 class CreateGroup extends Component {
   constructor(props) {
@@ -47,45 +48,35 @@ class CreateGroup extends Component {
         style={{ flex: 1, backgroundColor: "#282c34" }}
       >
         <ScrollView>
-          <View
-            style={{
-              marginTop: 150,
-              marginBottom: 12,
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center"
-            }}
-          >
-            <View style={{ paddingBottom: 30 }}>
-              <Image
-                style={{
-                  //flex: 1,
-                  aspectRatio: Platform.OS === "ios" ? 4.0 : 3.0,
-                  resizeMode: "contain",
-                  height: 80,
-                  width: 100
-                }}
-                source={require("../../assets/collabapp.png")}
-              />
-            </View>
-          </View>
           <View>
-            <View style={{ margin: 5 }}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("ForgotPassword")}
+            <View
+              style={{
+                marginTop: 50,
+                marginBottom: 20,
+                display: "flex",
+                flexDirection: "row",
+                paddingHorizontal: 20
+                //justifyContent: "space-between"
+              }}
+            >
+              <Feather
+                style={{ color: "white" }}
+                name="arrow-left"
+                size={40}
+                onPress={() => this.props.navigation.push("HomePage")}
+              />
+              <Text
+                style={{
+                  fontSize: 30,
+                  fontWeight: "bold",
+                  color: "white",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingLeft: 50
+                }}
               >
-                <Text
-                  style={{
-                    fontSize: 20,
-                    textAlign: "left",
-                    paddingLeft: 10,
-                    color: "white",
-                    fontWeight: "bold"
-                  }}
-                >
-                  Create Group
-                </Text>
-              </TouchableOpacity>
+                Create Group
+              </Text>
             </View>
 
             <View style={{ margin: 10, marginTop: 5 }}>
@@ -124,10 +115,30 @@ class CreateGroup extends Component {
                 />
               </Item>
 
+              <Item
+                rounded
+                multiline={true}
+                style={{
+                  borderWidth: 5,
+                  borderRadius: 5,
+                  margin: 5,
+                  backgroundColor: "#545f70"
+                }}
+              >
+                <Input
+                  multiline={true}
+                  style={{ color: "white", fontSize: 14, height: 100 }}
+                  placeholder="Description"
+                  //secureTextEntry={true}
+                  placeholderTextColor="white"
+                  //onChangeText={pass => this.setState({ pass })}
+                />
+              </Item>
+
               <View style={{ marginTop: 10 }}>
                 {/* {!this.state.loader ? ( */}
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate("Home")}
+                  onPress={() => this.props.navigation.navigate("HomePage")}
                   style={{
                     backgroundColor: "#147efb",
                     padding: 15,
@@ -142,72 +153,7 @@ class CreateGroup extends Component {
                 {/* <ActivityIndicator size="large" color="#0000ff" /> */}
                 {/* )} */}
               </View>
-              <View
-                style={{
-                  marginTop: 20,
-                  marginBottom: 20,
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-around"
-                }}
-              >
-                <View
-                  style={{
-                    bottom: 10,
-                    borderBottomColor: "#dddddd",
-                    borderBottomWidth: 1,
-                    width: 155
-                  }}
-                />
-                <View>
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      width: 30,
-                      color: "#dddddd",
-                      alignSelf: "center"
-                    }}
-                  >
-                    OR
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    bottom: 10,
-                    width: 155,
-                    borderBottomColor: "#dddddd",
-                    borderBottomWidth: 1
-                  }}
-                />
-              </View>
             </View>
-          </View>
-          <View>
-            <Footer
-              style={{ backgroundColor: "#282c34", borderColor: "#282c34" }}
-            >
-              <View
-                style={{ display: "flex", flexDirection: "row", padding: 15 }}
-              >
-                <Text style={{ color: "#a1a1a1", fontSize: 14 }}>
-                  Don’t have a Collab account yet?
-                </Text>
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate("Signup")}
-                >
-                  <Text
-                    style={{
-                      color: "white",
-                      fontSize: 14,
-                      marginLeft: 5,
-                      fontWeight: "bold"
-                    }}
-                  >
-                    Signup
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </Footer>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>

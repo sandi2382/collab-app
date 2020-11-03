@@ -4,6 +4,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import CreateGroup from "./components/CreateGroup";
 import Home from "../Home";
+import HomePage from "./screens/HomePage";
 
 import * as firebase from "firebase";
 
@@ -22,10 +23,11 @@ firebase.initializeApp(firebaseConfig);
 
 const MainNavigator = createStackNavigator(
   {
-    Signup: { screen: Signup },
-    Home: { screen: Home },
     Login: { screen: Login },
+    Signup: { screen: Signup },
+    HomePage: { screen: HomePage },
     CreateGroup: { screen: CreateGroup }
+    // Home: { screen: Home },
   },
   {
     headerMode: "none",
