@@ -32,7 +32,7 @@ class Login extends Component {
       .signInWithEmailAndPassword(this.state.email, this.state.pass)
       .then(data => {
         this.setState({ loader: false });
-        this.props.navigation.navigate("Home");
+        this.props.navigation.navigate("HomePage");
       })
       .catch(error => {
         this.setState({ loader: false });
@@ -49,14 +49,14 @@ class Login extends Component {
         <ScrollView>
           <View
             style={{
-              marginTop: 200,
+              marginTop: 150,
               marginBottom: 12,
               display: "flex",
               flexDirection: "row",
               justifyContent: "center"
             }}
           >
-            <View>
+            <View style={{ paddingBottom: 30 }}>
               <Image
                 style={{
                   //flex: 1,
@@ -108,9 +108,7 @@ class Login extends Component {
 
               <View style={{ margin: 5 }}>
                 <TouchableOpacity
-                  onPress={() =>
-                    this.props.navigation.navigate("ForgotPassword")
-                  }
+                  onPress={() => this.props.navigation.navigate("CreateGroup")}
                 >
                   <Text
                     style={{

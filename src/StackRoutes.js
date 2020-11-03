@@ -2,9 +2,11 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import CreateGroup from "./components/CreateGroup";
 import Home from "../Home";
+import HomePage from "./screens/HomePage";
 
-import * as firebase from "firebase"
+import * as firebase from "firebase";
 
 var firebaseConfig = {
   apiKey: "AIzaSyCqA2hxmu1SK1yeBevBcqT6Cgqf80NVnwg",
@@ -21,15 +23,17 @@ firebase.initializeApp(firebaseConfig);
 
 const MainNavigator = createStackNavigator(
   {
-    Signup: { screen: Signup },
-    Home: { screen: Home },
     Login: { screen: Login },
+    Signup: { screen: Signup },
+    HomePage: { screen: HomePage },
+    CreateGroup: { screen: CreateGroup }
+    // Home: { screen: Home },
   },
   {
     headerMode: "none",
     navigationOptions: {
-      headerVisible: false,
-    },
+      headerVisible: false
+    }
   }
 );
 
