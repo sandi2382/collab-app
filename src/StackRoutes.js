@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import CreateGroup from "./components/CreateGroup";
 import Home from "../Home";
 import HomePage from "./screens/HomePage";
+import ChatFeed from "./screens/ChatFeed";
+import GroupProfile from "./screens/GroupProfile";
 
 import * as firebase from "firebase";
 
@@ -23,10 +25,12 @@ firebase.initializeApp(firebaseConfig);
 
 const MainNavigator = createStackNavigator(
   {
-    Login: { screen: Login },
-    Signup: { screen: Signup },
+    // Login: { screen: Login },
+    // Signup: { screen: Signup },
     HomePage: { screen: HomePage },
-    CreateGroup: { screen: CreateGroup }
+    ChatFeed: { screen: ChatFeed },
+    CreateGroup: { screen: CreateGroup },
+    GroupProfile: { screen: GroupProfile }
     // Home: { screen: Home },
   },
   {

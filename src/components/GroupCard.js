@@ -28,42 +28,40 @@ class GroupCard extends Component {
 
   render() {
     return (
-      <TouchableOpacity>
+      <View
+        style={{
+          backgroundColor: "white",
+          height: 80,
+          borderRadius: 40,
+          //width: "100%",
+          marginHorizontal: 20,
+          marginVertical: 10,
+          alignItems: "center",
+          //justifyContent: "center",
+          flexDirection: "row"
+        }}
+      >
         <View
           style={{
-            backgroundColor: "white",
-            height: 80,
+            backgroundColor: "darkgrey",
+            height: 50,
+            width: 50,
             borderRadius: 40,
-            //width: "100%",
-            marginHorizontal: 20,
-            marginVertical: 10,
-            alignItems: "center",
-            //justifyContent: "center",
-            flexDirection: "row"
+            marginHorizontal: 30,
+            justifyContent: "center",
+            alignItems: "center"
           }}
         >
-          <View
-            style={{
-              backgroundColor: "darkgrey",
-              height: 50,
-              width: 50,
-              borderRadius: 40,
-              marginHorizontal: 30,
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <Feather
-              style={{ color: "lightgrey" }}
-              name="user"
-              size={40}
-              onPress={() => this.props.navigation.navigate("CreateGroup")}
-            />
-          </View>
-
-          <Text style={{ fontSize: 20, fontWeight: "700" }}>@GROUPNAME</Text>
+          <Feather
+            style={{ color: "lightgrey" }}
+            name="user"
+            size={40}
+            onPress={() => this.props.navigation.navigate("CreateGroup")}
+          />
         </View>
-      </TouchableOpacity>
+
+        <Text style={{ fontSize: 20, fontWeight: "700" }}>@GROUPNAME</Text>
+      </View>
     );
   }
 }

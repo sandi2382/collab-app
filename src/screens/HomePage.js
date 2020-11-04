@@ -57,7 +57,11 @@ class HomePage extends Component {
             />
           </View>
 
-          <GroupCard></GroupCard>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("ChatFeed")}
+          >
+            <GroupCard></GroupCard>
+          </TouchableOpacity>
           <GroupCard></GroupCard>
           <GroupCard></GroupCard>
 
@@ -83,7 +87,11 @@ class HomePage extends Component {
             />
           </View>
 
-          <GroupCard></GroupCard>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("ChatFeed")}
+          >
+            <GroupCard></GroupCard>
+          </TouchableOpacity>
           <GroupCard></GroupCard>
         </ScrollView>
       </KeyboardAvoidingView>
